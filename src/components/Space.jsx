@@ -31,7 +31,7 @@ const SpaceExplorer = () => {
     setError(null);
     try {
       const response = await fetch(
-        `https://api.nasa.gov/planetary/apod?api_key=${import.meta.env.NASA_API_KEY}&date=${date}`
+        `https://api.nasa.gov/planetary/apod?api_key=${import.meta.env.VITE_NASA_API_KEY}&date=${date}`
       );
       if (!response.ok) throw new Error("Failed to fetch APOD");
       const data = await response.json();
