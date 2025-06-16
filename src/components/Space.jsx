@@ -23,9 +23,6 @@ const SpaceExplorer = () => {
   const [missions, setMissions] = useState([]);
   const [currentMissionIndex, setCurrentMissionIndex] = useState(0);
 
-  // NASA API key - in production, this should be in environment variables
-  
-  // Fetch Astronomy Picture of the Day
   const fetchAPOD = async (date) => {
     setLoading(true);
     setError(null);
@@ -43,7 +40,6 @@ const SpaceExplorer = () => {
     }
   };
 
-  // Fetch Mars Rover Photos
   const fetchMarsPhotos = async (sol) => {
     setLoading(true);
     setError(null);
@@ -53,15 +49,13 @@ const SpaceExplorer = () => {
       );
       if (!response.ok) throw new Error("Failed to fetch Mars photos");
       const data = await response.json();
-      setMarsPhotos(data.photos.slice(0, 12)); // Limit to 12 photos
+      setMarsPhotos(data.photos.slice(0, 12)); 
     } catch (err) {
       setError(err.message);
     } finally {
       setLoading(false);
     }
   };
-
-  // Sample mission data (NASA doesn't have a dedicated historical missions API)
   const historicalMissions = [
     {
       name: "Apollo 11",
